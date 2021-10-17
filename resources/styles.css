@@ -1,0 +1,99 @@
+/* CSS HEX */
+:root{
+    /* CSS HEX */
+    --carnelian: #b10a0fff;
+    --rich-black-fogra-29: #07090fff;
+    --light-steel-blue: #b8c5d6ff;
+    --alice-blue: #edf5fcff;
+    --bluedark: #051249;
+}
+
+*{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: var(--light-steel-blue);
+}
+
+header{
+    background-color: var(--rich-black-fogra-29);
+    color: var(--alice-blue);
+    text-shadow: 1.5px 1.5px 4px var(--carnelian);
+}
+
+main{
+    padding: 12px 20px;
+    min-height: 500px;
+}
+main >*{
+    font-weight:bold;
+}
+
+section{
+    width: 50%;
+    float: right;
+}
+
+h1{
+    margin: auto;
+    padding: 15px;
+}
+
+
+input{
+    display: block;
+    margin: 20px;
+    width: 80%;
+    height: 50px;
+}
+
+button{
+    font-size: 16px;
+    font-weight: bold;
+    background: var(--bluedark);
+    color: var(--carnelian);
+    border: none;
+    opacity: 0.8;
+    width: 200px;
+    height: 30px;
+    margin: 60px 50px 20px;
+    border-radius: 0 50px 50px 0;
+}
+button:hover{
+    opacity: 1;
+    background: var(--carnelian);
+    color: var(--rich-black-fogra-29);
+}
+label{
+    color: var(--carnelian);
+}
+
+footer{
+    background-color: var(--alice-blue);
+    padding: 15px 30px;
+    margin-top: 9px;
+}
+
+.gladiador{
+    width: 80%;
+    height: 600px;
+    position: absolute;
+    left: 80px;
+    z-index: -5;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#resultado{
+    background-color: var(--rich-black-fogra-29);
+    padding: 15px;
+    color: white;
+    width: 80%;
+    height: 140px;
+}
