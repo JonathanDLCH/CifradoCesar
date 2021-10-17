@@ -12,14 +12,18 @@ function cifrarCesar(idMensaje,idClave){
 
     //Codificación
     for (var i=0; i<mensaje.length; i++) {
-        letraencriptada=mensaje.charCodeAt(i)+clave; //Obtenemos el ASCII ya con el corrimiento
-        
-        if(letraencriptada>122){
-            //Ya termino el alfabeto y regresa a la a
-            var restante = letraencriptada-122;
-            msgEncriptado+=String.fromCharCode(96+restante); //Suma desde A
+        if(mensaje.charCodeAt(i)>31 && mensaje.charCodeAt(i)<64){ //Si es un caracter especial como "," o " ", lo dejamos asi
+            msgEncriptado+= mensaje[i];
         }else{
-            msgEncriptado+=String.fromCharCode(letraencriptada);
+            letraencriptada=mensaje.charCodeAt(i)+clave; //Obtenemos el ASCII ya con el corrimiento
+            
+            if(letraencriptada>122){
+                //Ya termino el alfabeto y regresa a la a
+                var restante = letraencriptada-122;
+                msgEncriptado+=String.fromCharCode(96+restante); //Suma desde A
+            }else{
+                msgEncriptado+=String.fromCharCode(letraencriptada);
+            }
         }
     }
 
@@ -39,14 +43,18 @@ function desCifrarCesar(idMensaje,idClave){
 
     //Desifrar
     for (var i=0; i<mensaje.length; i++) {
-        letradesEncriptada=mensaje.charCodeAt(i)-clave; //Obtenemos el ASCII quitando el corrimiento
-
-        if(letradesEncriptada<97){
-            //Ya termino el alfabeto y regresa a la z
-            var restante = 97-letradesEncriptada;
-            msgdesEncriptado+=String.fromCharCode(123-restante); //resta desde Z
+        if(mensaje.charCodeAt(i)>31 && mensaje.charCodeAt(i)<64){ //Si es un caracter especial como "," o " ", lo dejamos asi
+            msgdesEncriptado+= mensaje[i];
         }else{
-            msgdesEncriptado+=String.fromCharCode(letradesEncriptada);
+            letradesEncriptada=mensaje.charCodeAt(i)-clave; //Obtenemos el ASCII quitando el corrimiento
+    
+            if(letradesEncriptada<97){
+                //Ya termino el alfabeto y regresa a la z
+                var restante = 97-letradesEncriptada;
+                msgdesEncriptado+=String.fromCharCode(123-restante); //resta desde Z
+            }else{
+                msgdesEncriptado+=String.fromCharCode(letradesEncriptada);
+            }
         }
     }
 
@@ -54,5 +62,3 @@ function desCifrarCesar(idMensaje,idClave){
     console.log(msgdesEncriptado);
     return msgdesEncriptado;
 }
-
-//document.getElementById("cifrar").addEventListener('click',cifrarCesar(document.getElementsByName("mensaje"),document.getElementsByName("clave")))
